@@ -1,0 +1,50 @@
+FROM archlinux
+
+ARG USER_NAME wojtek
+
+ENV USER ${USER_NAME}
+
+RUN pacman -Syyu sudo --noconfirm
+
+RUN echo "Defaults:${USER_NAME}      !authenticate" >> /etc/sudoers \
+    && echo "%wheel      ALL=(ALL:ALL) ALL" >> /etc/sudoers
+
+RUN useradd -ms /bin/bash ${USER_NAME} \
+    && usermod -aG wheel ${USER_NAME}
+
+USER ${USER_NAME}
+
+WORKDIR /home/${USER_NAME}
+
+RUN sudo pacman -Syyu --noconfirm \
+    neovim \
+    clang \
+    gcc \
+    make \
+    cmake \
+    git \
+    openssh \
+    tree-sitter \
+    cppcheck \
+    cpplint \
+    npm \
+    flake8 \
+    python \
+    nodejs \
+    which \
+    python-setuptools \
+    xorg-setxkbmap \
+    bash-completion \
+    wget \
+    unzip \
+    composer \
+    luarocks \
+    python-pip \
+    xclip \
+    ripgrep \
+    fd
+
+RUN git clone https://github.com/wojciechmadry/linux_conf_files.git \
+    && cd linux_conf_files \
+    && make install
+
