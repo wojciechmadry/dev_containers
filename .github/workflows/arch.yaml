@@ -16,8 +16,9 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install Dependencies
-      run: sudo apt -y install make docker docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+      run: sudo apt -y install make docker
 
     - name: Build arch developer docker container
+      uses: docker/setup-buildx-action@v2
       run: make arch USER_NAME:=ci
 

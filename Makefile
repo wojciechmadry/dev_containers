@@ -5,4 +5,4 @@ help:
 	@echo "------------"
 
 arch:
-	docker build --build-arg USER_NAME=${USER_NAME} -t dev_arch -f Dockerfile.arch .
+	docker buildx build --build-arg USER_NAME=${USER_NAME} -t dev_arch -f Dockerfile.arch .
