@@ -24,3 +24,8 @@ d_arch () {
   d_con dev_arch
 }
 
+# Create ubuntu 20.04 container or connect if exists
+d_u20 () {
+  d_con dev_u20
+}
+
