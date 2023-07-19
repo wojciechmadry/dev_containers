@@ -76,4 +76,3 @@ RUN mkdir -p ~/git \
 RUN git clone https://github.com/wojciechmadry/linux_conf_files.git \
     && cd linux_conf_files \
     && make install
-
