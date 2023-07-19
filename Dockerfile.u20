@@ -49,11 +49,8 @@ RUN sudo apt update \
     ripgrep \
     fd-find \
     gettext \
-    curl
-
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
-    && sudo apt upgrade -y \
-    && sudo apt install -y nodejs
+    curl \
+    nodejs
 
 RUN pip3 install \
     cpplint \
