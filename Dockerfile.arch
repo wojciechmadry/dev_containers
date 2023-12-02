@@ -42,7 +42,8 @@ RUN sudo pacman -Syyu --noconfirm \
     python-pip \
     xclip \
     ripgrep \
-    fd
+    fd \
+    fzf
 
 RUN git clone https://github.com/wojciechmadry/linux_conf_files.git \
     && cd linux_conf_files \
